@@ -5,7 +5,10 @@ function Book(title, author, pages, read) {
         this.author = author
         this.pages = pages
         this.read = read
+        console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
     }
+
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'not yet read')
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
@@ -19,7 +22,7 @@ function displayBook() {
     const read = document.createElement('p');
 }
 
-function loopLibrary() {
+function displayLibrary() {
     for (let Book of myLibrary) {
         displayBook(Book);
     }
