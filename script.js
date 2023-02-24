@@ -1,18 +1,30 @@
-let myLibrary = [];
+class Library {
+    constructor() {
+        this.books = []
+    }
+}
 
 function Book(title, author, pages, read) {
-        this.title = title
-        this.author = author
-        this.pages = pages
-        this.read = read
-        console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
-    }
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+    console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
+}
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'not yet read')
+const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
+const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423', 'read');
+const Towers = new Book('The Two Towers', 'J.R.R. Tolkein', '352', 'read');
+const King = new Book('The Return of the King', 'J.R.R. Tolkein', '416', 'read');
 
 function addBookToLibrary(newBook) {
-    myLibrary.push(newBook);
+    if (library.includes(newBook) === false) {
+        library.push(newBook);
+    }
 }
+
+addBookToLibrary(Book);
+console.log(library);
 
 function displayBook() {
     const bookCard = document.createElement('div');
@@ -23,7 +35,7 @@ function displayBook() {
 }
 
 function displayLibrary() {
-    for (let Book of myLibrary) {
+    for (let Book of library) {
         displayBook(Book);
     }
 }
