@@ -1,30 +1,35 @@
-class Library {
-    constructor() {
-        this.books = []
-    }
-}
+let library = [];
 
-class Book {
-    constructor(title, author, pages, read) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
-    }
 }
 
-const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
-const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423', 'read');
-const Towers = new Book('The Two Towers', 'J.R.R. Tolkein', '352', 'read');
-const King = new Book('The Return of the King', 'J.R.R. Tolkein', '416', 'read');
+function getBookInfo() {
+    document.querySelector('#submit').addEventListener('click', () => {
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').value; 
+    console.log(title);
+    console.log(author);
+    console.log(pages);
+    console.log(read);
+    return new Book(title, author, pages, read);
+    })
+}
 
+/*
 function addBookToLibrary() {
-    this.books.push(Hobbit);
+    const newBook = getBookInfo();
+    library.push(newBook);
 }
 
 addBookToLibrary();
-console.log(this.books);
+console.log(library);
 
 function displayBook() {
     const bookCard = document.createElement('div');
@@ -39,3 +44,11 @@ function displayLibrary() {
         displayBook(Book);
     }
 }
+
+
+
+const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
+const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423', 'read');
+const Towers = new Book('The Two Towers', 'J.R.R. Tolkein', '352', 'read');
+const King = new Book('The Return of the King', 'J.R.R. Tolkein', '416', 'read');
+*/
