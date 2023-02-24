@@ -4,12 +4,14 @@ class Library {
     }
 }
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
     console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
+    }
 }
 
 const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
@@ -17,14 +19,12 @@ const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423
 const Towers = new Book('The Two Towers', 'J.R.R. Tolkein', '352', 'read');
 const King = new Book('The Return of the King', 'J.R.R. Tolkein', '416', 'read');
 
-function addBookToLibrary(newBook) {
-    if (library.includes(newBook) === false) {
-        library.push(newBook);
-    }
+function addBookToLibrary() {
+    this.books.push(Hobbit);
 }
 
-addBookToLibrary(Book);
-console.log(library);
+addBookToLibrary();
+console.log(this.books);
 
 function displayBook() {
     const bookCard = document.createElement('div');
