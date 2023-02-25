@@ -5,22 +5,18 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`)
+    console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`);
 }
 
-function getBookInfo() {
-    document.querySelector('#submit').addEventListener('click', () => {
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-    const read = document.querySelector('#read').value; 
-    console.log(title);
-    console.log(author);
-    console.log(pages);
-    console.log(read);
-    return new Book(title, author, pages, read);
-    })
-}
+const newBookInfo = document.querySelector('#submit');
+    submit.addEventListener('click', () => {
+        const title = document.querySelector('#title').value;
+        const author = document.querySelector('#author').value;
+        const pages = document.querySelector('#pages').value;
+        const read = document.querySelector('#read').value; 
+        console.log(title, author, pages, read);
+        return new Book(title, author, pages, read);
+    });
 
 /*
 function addBookToLibrary() {
