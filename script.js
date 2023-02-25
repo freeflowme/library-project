@@ -10,20 +10,21 @@ function Book(title, author, pages, read) {
 
 const newBookInfo = document.querySelector('#submit');
     submit.addEventListener('click', () => {
-        const title = document.querySelector('#title').value;
-        const author = document.querySelector('#author').value;
-        const pages = document.querySelector('#pages').value;
-        const read = document.querySelector('#read').value; 
-        console.log(title, author, pages, read);
-        return new Book(title, author, pages, read);
-    });
+        const newBook = new Book();
+        newBook.title = document.querySelector('#title').value;
+        newBook.author = document.querySelector('#author').value;
+        newBook.pages = document.querySelector('#pages').value;
+        newBook.read = document.querySelector('#read').value; 
+        console.log(newBook);
+        if (library.includes(newBook) === false) {
+            library.push(newBook);
+            console.log(library);
+        }
+    }
+)
+
 
 /*
-function addBookToLibrary() {
-    const newBook = getBookInfo();
-    library.push(newBook);
-}
-
 addBookToLibrary();
 console.log(library);
 
@@ -40,8 +41,6 @@ function displayLibrary() {
         displayBook(Book);
     }
 }
-
-
 
 const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
 const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423', 'read');
