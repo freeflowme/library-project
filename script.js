@@ -5,7 +5,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`);
 }
 
 const newBookInfo = document.querySelector('#submit');
@@ -42,10 +41,33 @@ function displayBook() {
         const read = document.createElement('p');
             read.textContent = Book.read;
             card.appendChild(read);
+        const removeBtn = document.createElement('button');
+            removeBtn.className = 'removeBtn';
+            removeBtn.textContent = 'Remove';
+            card.appendChild(removeBtn);
+            removeBtn.addEventListener('click', () => {
+                library.splice(library.indexOf(Book), 1);
+                document.querySelector('.display').removeChild(card);
+                console.log(library);
+            })
+        const readBtn = document.createElement('button');
+            readBtn.className = 'readBtn';
+            readBtn.textContent = 'Read?';
+            card.appendChild(readBtn);
+            readBtn.addEventListener('click', () => {
+                Book.read = !Book.read;
+                console.log(Book);
+                read.textContent = "No"
+            })
     }
 }
 
+function removeBook() {
+    library.splice(library.indexOf(Book), 1);
+}
+
 /*
+console.log(`${this.title}` + ` by ${this.author},` + ` ${this.pages} pages,` + ` ${this.read}`);
 const Hobbit = new Book('The Hobbit', 'J.R.R. Tolkein', '295', 'read');
 const Fellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkein', '423', 'read');
 const Towers = new Book('The Two Towers', 'J.R.R. Tolkein', '352', 'read');
